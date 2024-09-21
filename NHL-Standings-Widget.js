@@ -138,23 +138,44 @@ if(config.runsInWidget)
            pointPctg: ""
         }
         
-        const _Standings = fetchCurrentStandings;
+        const _Standings = fetchCurrentStandings();
 
-        if(_Standings && _Standings?.standings){
-            const _TeamStandings = _Standings.standings.find(standing=> standing.teamAbbrev.default === "TOR");
-        }
-        if(!!_TeamStandings) {
-            _TeamData.leagueSequence = _TeamStandings.leagueSequence;
-            _TeamData.conferenceSequence = _TeamStandings.conferenceSequence;
-            _TeamData.divisionSequence = _TeamStandings.divisionSequence;
-            _TeamData.teamAbbrev = _TeamStandings.teamAbbrev;
-            _TeamData.gamesPlayed = _TeamStandings.gamesPlayed;
-            _TeamData.wins = _TeamStandings.wins;
-            _TeamData.losses = _TeamStandings.losses;
+        const _StandingsTeam = filterStandings(_Stnadings);
+
+        if(!!_StandingsTeam) {
+            _TeamData.leagueSequence = _StandingsTeam.leagueSequence;
+            _TeamData.conferenceSequence = _StandingsTeam.conferenceSequence;
+            _TeamData.divisionSequence = _StandingsTeam.divisionSequence;
+            _TeamData.teamAbbrev = _StandingsTeam.teamAbbrev;
+            _TeamData.gamesPlayed = _StandingsTeam.gamesPlayed;
+            _TeamData.wins = _StandingsTeam.wins;
+            _TeamData.losses = _StandingsTeam.losses;
         }
 
         return _TeamData;
 
+     }
+
+
+     function filterStandings(_Standings)
+     {
+        let _Result = null;
+        if(_Standings && _Standings?.standings){
+            const _TeamStandings = _Standings.standings.find(standing => standing.teamAbbrev.default === "TOR");
+            if(!!_TeamStandings)
+            {
+                _Result = {
+                    leagueSequence: _TeamStandings.leagueSequence,
+                    divisionSequence: _TeamStandings.divisionSequence,
+                    gamesPlayed: _TeamStandings.gamesPlayed,
+                    teamAbbrev: _TeamStandings.teamAbbrev,
+                    wins: _TeamStandings.wins,
+                    losses: _TeamStandings.losses
+                };
+            }
+        }
+
+        return _Result;
      }
 
      async function fetchCurrentStandings()
