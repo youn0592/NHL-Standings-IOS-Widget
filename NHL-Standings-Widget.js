@@ -161,7 +161,7 @@ if(config.runsInWidget)
      {
         let _Result = null;
         if(_Standings && _Standings?.standings){
-            const _TeamStandings = _Standings.standings.find(standing => standing.teamAbbrev.default === "TOR");
+            const _TeamStandings = _Standings.standings.find(standing => standing.teamAbbrev.default === "NYR");
             if(!!_TeamStandings)
             {
                 _Result = {
