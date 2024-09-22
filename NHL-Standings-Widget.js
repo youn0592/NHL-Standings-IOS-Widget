@@ -99,9 +99,12 @@ if(config.runsInWidget)
         }
 
          let _HeadingText;
-         HeadingText = oHeadingStack.addText(
-           ' ${_StnadingData.divisionSequence}   ${_StnadingData.teamAbbrev}    ${_StnadingData.gamesPlayed}   ${_StnadingData.wins}   ${_StnadingData.losses}'
+         _HeadingText = oHeadingStack.addText(
+           `${_StandingData.divisionSequence}   ${_StandingData.teamAbbrev}    ${_StnandingData.gamesPlayed}   ${_StandingData.wins}   ${_StandingData.losses}`
          );
+
+         _HeadingText.font = Font.boldSystemFont(11);
+         _HeadingText.textColor = new Color("#FFFFF");
     
         /*for(let i = 0; i < DIVISION_SIZE; i++)
         {
@@ -140,7 +143,7 @@ if(config.runsInWidget)
         
         const _Standings = fetchCurrentStandings();
 
-        const _StandingsTeam = filterStandings(_Stnadings);
+        const _StandingsTeam = await filterStandings(_Stnadings);
 
         if(!!_StandingsTeam) {
             _TeamData.leagueSequence = _StandingsTeam.leagueSequence;
