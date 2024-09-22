@@ -145,7 +145,7 @@ if(config.runsInWidget)
         
         const _Standings = fetchCurrentStandings();
 
-        const _StandingsTeam = await filterStandings(_Stnadings);
+        const _StandingsTeam = await filterStandings(_Standings);
 
         if(!!_StandingsTeam) {
             _TeamData.leagueSequence = _StandingsTeam.leagueSequence;
