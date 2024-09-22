@@ -96,18 +96,20 @@ if(config.runsInWidget)
             _HeadingStack.layoutHorizontally();
             _HeadingStack.AddSpacer();
             _HeadingStack.setPadding(7,7,7,7);
+
+            let _HeadingText;
+            _HeadingText = _HeadingStack.addText(
+              `${_StandingData.divisionSequence}   ${_StandingData.teamAbbrev}    ${_StnandingData.gamesPlayed}   ${_StandingData.wins}   ${_StandingData.losses}`
+            );
+   
+            _HeadingText.font = Font.boldSystemFont(11);
+            _HeadingText.textColor = new Color("#FFFFF");
+   
+            _HeadingText.leftAlignText();
+       
         }
 
-         let _HeadingText;
-         _HeadingText = oHeadingStack.addText(
-           `${_StandingData.divisionSequence}   ${_StandingData.teamAbbrev}    ${_StnandingData.gamesPlayed}   ${_StandingData.wins}   ${_StandingData.losses}`
-         );
-
-         _HeadingText.font = Font.boldSystemFont(11);
-         _HeadingText.textColor = new Color("#FFFFF");
-
-         _HeadingText.leftAlignText();
-    
+        
         /*for(let i = 0; i < DIVISION_SIZE; i++)
         {
             const _TeamData = prepareData(i);
