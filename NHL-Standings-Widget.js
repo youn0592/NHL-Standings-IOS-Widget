@@ -105,6 +105,8 @@ if(config.runsInWidget)
 
          _HeadingText.font = Font.boldSystemFont(11);
          _HeadingText.textColor = new Color("#FFFFF");
+
+         _HeadingText.leftAlignText();
     
         /*for(let i = 0; i < DIVISION_SIZE; i++)
         {
