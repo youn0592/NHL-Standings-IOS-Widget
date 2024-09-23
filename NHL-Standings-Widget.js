@@ -103,16 +103,15 @@ if(config.runsInWidget)
             _HeadingText = _HeadingStack.addText(
               `${_StandingData.divisionSequence}`
             );
-            _HeadingText.font = Font.boldSystemFont(11);
             _HeadingText.textColor = new Color("FFFFFF");
           _HeadingStack.addSpacer(10);
           const _LogoData = getTeamData();
           const _LogoURL = _LogoData[_StandingData.teamAbbrev].logo;
-            const imgRequest = await loadLogo(_StandingData.teamAbbrev, _LogoURL);
+            const imgRequest = new Request(_LogoURL)
             const img = await imgRequest.loadImage();
 
             const teamLogo = _HeadingStack.addImage(img);
-            teamLogo.imageSize = new Size(30,30); 
+            teamLogo.imageSize = new Size(25,25); 
             _HeadingStack.addSpacer(10);
             const secondaryText = _HeadingStack.addText(
      ` ${_StandingData.teamAbbrev}    ${_StandingData.gamesPlayed}   ${_StandingData.wins}   ${_StandingData.losses}  `
@@ -183,7 +182,7 @@ if(config.runsInWidget)
      {
         let _Result = null;
         if(_Standings && _Standings?.standings){
-            const _TeamStandings = _Standings.standings.find(standing => standing.teamAbbrev.default === "NYR");
+            const _TeamStandings = _Standings.standings.find(standing => standing.teamAbbrev.default === "TOR");
             if(!!_TeamStandings)
             {
                 _Result = {
