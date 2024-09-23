@@ -115,7 +115,9 @@ _HeadingStack.addSpacer(10);
 const secondaryText = _HeadingStack.addText(
      `    `
      );
-            _ _HeadingText.leftAlignText();
+               //${_StandingData.teamAbbrev}    ${_StandingData.gamesPlayed}   ${_StandingData.wins}   ${_StandingData.losses}
+          
+          _HeadingText.leftAlignText();
        
         }
 
