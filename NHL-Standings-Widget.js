@@ -106,8 +106,9 @@ if(config.runsInWidget)
             _HeadingText.font = Font.boldSystemFont(11);
             _HeadingText.textColor = new Color("FFFFFF");
           _HeadingStack.addSpacer(10);
-          const _LogoData = getTeamData[_StandingData.teamAbbrev]().logo;
-            const imgRequest = await loadLogo(_StandingData.teamAbbrev, _LogoData);
+          const _LogoData = getTeamData();
+          const _LogoURL = _LogoData[_StandingData.teamAbbrev].logo;
+            const imgRequest = await loadLogo(_StandingData.teamAbbrev, _LogoURL);
             const img = await imgRequest.loadImage();
 
             const teamLogo = _HeadingStack.addImage(img);
