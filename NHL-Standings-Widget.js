@@ -89,7 +89,7 @@ if(config.runsInWidget)
 
         const _TopRow = _Widget.addStack();
         _TopRow.cornerRadius = 12;
-        _TopRow.size = new Size(308, 15);
+        _TopRow.size = new Size(308, 100);
         _TopRow.setPadding(7,7,7,7);
         _TopRow.layoutVertically();
 
@@ -97,21 +97,25 @@ if(config.runsInWidget)
         {
             const _HeadingStack = _TopRow.addStack();
             _HeadingStack.layoutHorizontally();
-            _HeadingStack.setPadding(7,7,7,7);
+            _HeadingStack.setPadding(2,2,2,2);
 
             let _HeadingText;
             _HeadingText = _HeadingStack.addText(
-              `${_StandingData.divisionSequence}`   //${_StandingData.teamAbbrev}    ${_StandingData.gamesPlayed}   ${_StandingData.wins}   ${_StandingData.losses}
+              `${_StandingData.divisionSequence}`
             );
             _HeadingText.font = Font.boldSystemFont(11);
             _HeadingText.textColor = new Color("FFFFFF");
-
+          _HeadingStack.addSpacer(10);
             const imgRequest = new Request("https://www.thesportsdb.com/images/media/team/badge/1d465t1719573796.png/tiny");
             const img = await imgRequest.loadImage();
 
-            _HeadingStack.addImage(img);
-   
-            _HeadingText.leftAlignText();
+            const teamLogo = _HeadingStack.addImage(img);
+teamLogo.imageSize = new Size(30,30); 
+_HeadingStack.addSpacer(10);
+const secondaryText = _HeadingStack.addText(
+     `    `
+     );
+            _ _HeadingText.leftAlignText();
        
         }
 
