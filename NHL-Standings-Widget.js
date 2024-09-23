@@ -114,7 +114,7 @@ if(config.runsInWidget)
             teamLogo.imageSize = new Size(25,25); 
             _HeadingStack.addSpacer(10);
             const secondaryText = _HeadingStack.addText(
-     ` ${_StandingData.teamAbbrev} ${_StandingData.gamesPlayed} ${_StandingData.wins} ${_StandingData.losses} ${_StandingData.otLosses} ${_StandingData.points} ${_Standings.pointPctg} `
+     ` ${_StandingData.teamAbbrev} ${_StandingData.gamesPlayed} ${_StandingData.wins} ${_StandingData.losses} ${_StandingData.otLosses} ${_StandingData.points} ${_StandingData.pointPctg} `
      );
 
           
@@ -363,7 +363,7 @@ if(config.runsInWidget)
            },
            TBL:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/rsqtwx1422053715.png"
+            logo: "https://www.thesportsdb.com/images/media/team/badge/swysut1421791822.png"
            },
            TOR:
            {
@@ -387,7 +387,7 @@ if(config.runsInWidget)
            },
            WPG:
            {
-            logo: "https://www.thesportsdb.com/team/134851-Winnipeg-Jets"
+            logo: "https://www.thesportsdb.com/images/media/team/badge/bwn9hr1547233611.png"
            }
         };
     }
