@@ -110,12 +110,12 @@ if(config.runsInWidget)
             const img = await imgRequest.loadImage();
 
             const teamLogo = _HeadingStack.addImage(img);
-teamLogo.imageSize = new Size(30,30); 
-_HeadingStack.addSpacer(10);
-const secondaryText = _HeadingStack.addText(
-     `    `
+            teamLogo.imageSize = new Size(30,30); 
+            _HeadingStack.addSpacer(10);
+            const secondaryText = _HeadingStack.addText(
+     ` ${_StandingData.teamAbbrev}    ${_StandingData.gamesPlayed}   ${_StandingData.wins}   ${_StandingData.losses}  `
      );
-               //${_StandingData.teamAbbrev}    ${_StandingData.gamesPlayed}   ${_StandingData.wins}   ${_StandingData.losses}
+
           
           _HeadingText.leftAlignText();
        
