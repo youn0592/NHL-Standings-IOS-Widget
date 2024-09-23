@@ -114,7 +114,7 @@ if(config.runsInWidget)
             teamLogo.imageSize = new Size(25,25); 
             _HeadingStack.addSpacer(10);
             const secondaryText = _HeadingStack.addText(
-     ` ${_StandingData.teamAbbrev}    ${_StandingData.gamesPlayed}   ${_StandingData.wins}   ${_StandingData.losses}  `
+     ` ${_StandingData.teamAbbrev} ${_StandingData.gamesPlayed} ${_StandingData.wins} ${_StandingData.losses} ${_StandingData.otLosses} ${_StandingData.points} ${_Standings.pointPctg} `
      );
 
           
@@ -171,6 +171,9 @@ if(config.runsInWidget)
             _TeamData.gamesPlayed = _StandingsTeam.gamesPlayed;
             _TeamData.wins = _StandingsTeam.wins;
             _TeamData.losses = _StandingsTeam.losses;
+            _TeamData.otLosses = _Standings.otLosses;
+            _TeamData.points = _Standings.points;
+            _TeamData.pointPctg = _Standings.pointPctg;
         }
 
         return _TeamData;
@@ -192,7 +195,10 @@ if(config.runsInWidget)
                     gamesPlayed: _TeamStandings.gamesPlayed,
                     teamAbbrev: _TeamStandings.teamAbbrev.default,
                     wins: _TeamStandings.wins,
-                    losses: _TeamStandings.losses
+                    losses: _TeamStandings.losses,
+                    otLosses: _TeamStandings.otLosses,
+                    points: _TeamStandings.points,
+                    pointsPctg: _TeamStandings.pointPctg
                 };
             }
         }
