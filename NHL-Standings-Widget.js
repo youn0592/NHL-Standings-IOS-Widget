@@ -4,6 +4,9 @@ const CURRENT_SEASON = 20242025;
 
 const WIDGET_URL = "nhl://"
 
+//for Cahcing images on 32 Teams, saves data.
+const ISCACHE = true;
+
 
 /*
 Type the abbervation of the division you want to track
@@ -92,18 +95,21 @@ if(config.runsInWidget)
 
         if(_StandingData != null)
         {
-            const _HeadingStack = _TopRow.AddStack();
+            const _HeadingStack = _TopRow.addStack();
             _HeadingStack.layoutHorizontally();
-            _HeadingStack.AddSpacer();
             _HeadingStack.setPadding(7,7,7,7);
 
             let _HeadingText;
             _HeadingText = _HeadingStack.addText(
-              `${_StandingData.divisionSequence}   ${_StandingData.teamAbbrev}    ${_StnandingData.gamesPlayed}   ${_StandingData.wins}   ${_StandingData.losses}`
+              `${_StandingData.divisionSequence}`   //${_StandingData.teamAbbrev}    ${_StandingData.gamesPlayed}   ${_StandingData.wins}   ${_StandingData.losses}
             );
-   
             _HeadingText.font = Font.boldSystemFont(11);
-            _HeadingText.textColor = new Color("#FFFFF");
+            _HeadingText.textColor = new Color("FFFFFF");
+
+            const imgRequest = new Request("https://www.thesportsdb.com/images/media/team/badge/1d465t1719573796.png/tiny");
+            const img = await imgRequest.loadImage();
+
+            _HeadingStack.addImage(img);
    
             _HeadingText.leftAlignText();
        
@@ -145,7 +151,7 @@ if(config.runsInWidget)
            pointPctg: ""
         }
         
-        const _Standings = fetchCurrentStandings();
+        const _Standings =  await fetchCurrentStandings();
 
         const _StandingsTeam = await filterStandings(_Standings);
 
@@ -153,6 +159,7 @@ if(config.runsInWidget)
             _TeamData.leagueSequence = _StandingsTeam.leagueSequence;
             _TeamData.conferenceSequence = _StandingsTeam.conferenceSequence;
             _TeamData.divisionSequence = _StandingsTeam.divisionSequence;
+            _TeamData.teamLogo = _StandingsTeam.teamLogo;
             _TeamData.teamAbbrev = _StandingsTeam.teamAbbrev;
             _TeamData.gamesPlayed = _StandingsTeam.gamesPlayed;
             _TeamData.wins = _StandingsTeam.wins;
@@ -174,8 +181,9 @@ if(config.runsInWidget)
                 _Result = {
                     leagueSequence: _TeamStandings.leagueSequence,
                     divisionSequence: _TeamStandings.divisionSequence,
+                    teamLogo: _TeamStandings.teamLogo,
                     gamesPlayed: _TeamStandings.gamesPlayed,
-                    teamAbbrev: _TeamStandings.teamAbbrev,
+                    teamAbbrev: _TeamStandings.teamAbbrev.default,
                     wins: _TeamStandings.wins,
                     losses: _TeamStandings.losses
                 };
@@ -185,6 +193,51 @@ if(config.runsInWidget)
         return _Result;
      }
 
+
+     async function loadLogo(teamAbbrev, logoURL)
+     {
+        let _Result;
+        if(ISCACHE){
+            const _Files = FileManager.local();
+
+            const _CachePath = _Files.joinPath(_Files.cacheDirectory, teamAbbrev + "_NHL");
+            const bCacheExists = _Files.FileManager(_CachePath);
+        try{
+            if(bCacheExists){
+                _Result = _Files.readImage(_CachePath);
+            }
+            else
+            {
+                const _Request = new Request(logoURL);
+                _Result = await _Request.loadImage();
+                try{
+                    _Files.writeImage(_CachePath, _Result);
+                    console.log("Created cache entry for logo of " + teamAbbrev);
+                }
+                catch(e)
+                {
+                    console.log(e);
+                }
+            }
+        }
+        catch(_Error)
+        {
+            console.error(_Error);
+            if(bCacheExists){
+                _Result = _Files.readImage(_CachePath);
+            }
+            else{
+                console.log("Fetching logo for "  + teamAbbrev + " failed");
+            }
+        }
+    }
+    else {
+        const _Request = new Request(logoURL);
+        _Result = await _Request.loadImage();
+    }
+    return _Result;
+     }
+
      async function fetchCurrentStandings()
      {
         const _URL = "https://api-web.nhle.com/v1/standings/now";
@@ -192,5 +245,10 @@ if(config.runsInWidget)
         const _Data = await _Request.loadJSON();
 
         return _Data;
+     }
+
+     function getTeamData()
+    {
+
      }
      
