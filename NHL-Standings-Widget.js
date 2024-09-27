@@ -264,6 +264,26 @@ if(config.runsInWidget)
         return _Data;
      }
 
+     async function sortCurrentStandings(division, _Standings)
+     {
+        let _Result = null;
+        _Result = _Standings.sort(function(a,b){
+            return compareString(a.divisionAbbrev, b.divisionAbbrev);
+        })
+        
+        console.log(_Result);
+
+     }
+
+     function compareString(a,b)
+     {
+        a = a.toLowerCase();
+        b = b.toLowerCase();
+
+        return (a < b) ? - 1 : (a > b) ? 1 : 0;
+
+     }
+
      function getTeamData()
     {
        return {
