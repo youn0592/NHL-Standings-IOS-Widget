@@ -124,7 +124,8 @@ if(config.runsInWidget)
        _SecondRow.layoutHorizontally();
      _SecondRow.setPadding(2,2,2,2);
      
-     const text = _SecondRow.addText(');6-6/):?')
+     const text = _SecondRow.addText(');6-6/):?');
+
         }
      
      
@@ -165,6 +166,7 @@ if(config.runsInWidget)
         }
         
         const _Standings =  await fetchCurrentStandings();
+        const func = await sortCurrentStandings(DIVISION, _Standings)
 
         const _StandingsTeam = await filterStandings(_Standings);
 
@@ -264,13 +266,14 @@ if(config.runsInWidget)
         return _Data;
      }
 
-     async function sortCurrentStandings(division, _Standings)
+     async function sortCurrentStandings(division, _StandingData)
      {
+        //StandingData is only the one set by Abbrev and not the full file.
         let _Result = null;
-        _Result = _Standings.sort(function(a,b){
+        _Result = _StandingData.standings.sort(function(a,b){
             return compareString(a.divisionAbbrev, b.divisionAbbrev);
         })
-        
+
         console.log(_Result);
 
      }
