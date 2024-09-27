@@ -89,8 +89,9 @@ if(config.runsInWidget)
 
         const _TopRow = _Widget.addStack();
         _TopRow.cornerRadius = 12;
-        _TopRow.size = new Size(308, 100);
-        _TopRow.setPadding(7,7,7,7);
+        _TopRow.size = new Size(308, 250);
+     _TopRow.backgroundColor = new Color("272727")
+        _TopRow.setPadding(2,2,2,2);
         _TopRow.layoutVertically();
 
         if(_StandingData != null)
@@ -113,15 +114,20 @@ if(config.runsInWidget)
             const teamLogo = _HeadingStack.addImage(img);
             teamLogo.imageSize = new Size(25,25); 
             _HeadingStack.addSpacer(10);
+          console.log(_StandingData);
             const secondaryText = _HeadingStack.addText(
-     ` ${_StandingData.teamAbbrev} ${_StandingData.gamesPlayed} ${_StandingData.wins} ${_StandingData.losses} ${_StandingData.otLosses} ${_StandingData.points} ${_StandingData.pointPctg} `
+     ` ${_StandingData.teamAbbrev} ${_StandingData.gamesPlayed} ${_StandingData.wins} ${_StandingData.losses} ${_StandingData.otLosses} ${_StandingData.points}`
      );
-
-          
           _HeadingText.leftAlignText();
-       
+          _TopRow.addSpacer(0);
+          const _SecondRow = _TopRow.addStack();
+       _SecondRow.layoutHorizontally();
+     _SecondRow.setPadding(2,2,2,2);
+     
+     const text = _SecondRow.addText(');6-6/):?')
         }
-
+     
+     
         
         /*for(let i = 0; i < DIVISION_SIZE; i++)
         {
@@ -166,16 +172,15 @@ if(config.runsInWidget)
             _TeamData.leagueSequence = _StandingsTeam.leagueSequence;
             _TeamData.conferenceSequence = _StandingsTeam.conferenceSequence;
             _TeamData.divisionSequence = _StandingsTeam.divisionSequence;
-            _TeamData.teamLogo = _StandingsTeam.teamLogo;
             _TeamData.teamAbbrev = _StandingsTeam.teamAbbrev;
             _TeamData.gamesPlayed = _StandingsTeam.gamesPlayed;
             _TeamData.wins = _StandingsTeam.wins;
             _TeamData.losses = _StandingsTeam.losses;
-            _TeamData.otLosses = _Standings.otLosses;
-            _TeamData.points = _Standings.points;
-            _TeamData.pointPctg = _Standings.pointPctg;
+            _TeamData.otLosses = _StandingsTeam.otLosses;
+            _TeamData.points = _StandingsTeam.points;
+            _TeamData.pointPctg = _StandingsTeam.pointPctg;
         }
-
+     console.log(_StandingsTeam)
         return _TeamData;
 
      }
@@ -185,13 +190,12 @@ if(config.runsInWidget)
      {
         let _Result = null;
         if(_Standings && _Standings?.standings){
-            const _TeamStandings = _Standings.standings.find(standing => standing.teamAbbrev.default === "TOR");
+            const _TeamStandings = _Standings.standings.find(standing => standing.teamAbbrev.default === "ANA");
             if(!!_TeamStandings)
             {
                 _Result = {
                     leagueSequence: _TeamStandings.leagueSequence,
                     divisionSequence: _TeamStandings.divisionSequence,
-                    teamLogo: _TeamStandings.teamLogo,
                     gamesPlayed: _TeamStandings.gamesPlayed,
                     teamAbbrev: _TeamStandings.teamAbbrev.default,
                     wins: _TeamStandings.wins,
@@ -363,7 +367,7 @@ if(config.runsInWidget)
            },
            TBL:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/swysut1421791822.png"
+            logo: "https://www.thesportsdb.com/images/media/team/badge/rsqtwx1422053715.png"
            },
            TOR:
            {
@@ -387,7 +391,7 @@ if(config.runsInWidget)
            },
            WPG:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/bwn9hr1547233611.png"
+            logo: "https://www.thesportsdb.com/team/134851-Winnipeg-Jets"
            }
         };
     }
