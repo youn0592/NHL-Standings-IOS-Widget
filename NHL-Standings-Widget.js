@@ -277,29 +277,29 @@ if(config.runsInWidget)
         let startingNum;
         switch(DIVISION)
         {
-            case A:
+            case "A":
                 startingNum = 0;
                 break;
-            case M:
+            case "M":
                 startingNum = 8;
                 break;
-            case C:
+            case "C":
                 startingNum = 16;
                 break;
-            case P:
+            case "P":
                 startingNum = 24;
                 break;
             default:
                 break;
 
         }
-        let _Result;
+        let _Result = [];
         for(let i = 0; i < DIVISION_SIZE; ++i)
         {
-            _Result += _StandingData[startingNum];
+            _Result.push(_StandingData.standings[startingNum]);
             ++startingNum;
         }
-        console.log(_Result);
+        console.log(_Result[3]);
         return _Result;
 
      }
