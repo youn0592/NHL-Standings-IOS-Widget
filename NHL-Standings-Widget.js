@@ -166,7 +166,7 @@ if(config.runsInWidget)
         }
         
         const _Standings =  await fetchCurrentStandings();
-        const func = await sortCurrentStandings(DIVISION, _Standings)
+        const func = await sortCurrentStandings(_Standings)
 
         const _StandingsTeam = await filterStandings(_Standings);
 
@@ -266,15 +266,41 @@ if(config.runsInWidget)
         return _Data;
      }
 
-     async function sortCurrentStandings(division, _StandingData)
+     async function sortCurrentStandings(_StandingData)
      {
         //StandingData is only the one set by Abbrev and not the full file.
-        let _Result = null;
-        _Result = _StandingData.standings.sort(function(a,b){
+        //THIS WORKS!!!
+        let _SortedFile = null;
+        _SortedFile = _StandingData.standings.sort(function(a,b){
             return compareString(a.divisionAbbrev, b.divisionAbbrev);
         })
+        let startingNum;
+        switch(DIVISION)
+        {
+            case A:
+                startingNum = 0;
+                break;
+            case M:
+                startingNum = 8;
+                break;
+            case C:
+                startingNum = 16;
+                break;
+            case P:
+                startingNum = 24;
+                break;
+            default:
+                break;
 
+        }
+        let _Result;
+        for(let i = 0; i < DIVISION_SIZE; ++i)
+        {
+            _Result += _StandingData[startingNum];
+            ++startingNum;
+        }
         console.log(_Result);
+        return _Result;
 
      }
 
