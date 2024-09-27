@@ -280,10 +280,10 @@ if(config.runsInWidget)
             case "A":
                 startingNum = 0;
                 break;
-            case "M":
+            case "C":
                 startingNum = 8;
                 break;
-            case "C":
+            case "M":
                 startingNum = 16;
                 break;
             case "P":
