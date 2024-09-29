@@ -103,13 +103,17 @@ if(config.runsInWidget)
             const _Standings =  await fetchCurrentStandings();
             const _DivisionStandings = await sortCurrentStandings(_Standings)
 
+            _StandingHeader = [];
             _StandingText = [];
 
             for(let i = 0; i < DIVISION_SIZE; ++i)
             {
-                _StandingText = _HeadingStack.addText(`${_DivisionStandings[i].teamAbbrev.default}`);
-                _StandingText.textColor = new Color("FFFFFF");
-                _HeadingStack.addSpacer(10);
+                _StandingHeader[i] = _TopRow.addStack();
+                _StandingHeader[i].layoutHorizontally();
+                _StandingHeader[i].setPadding(2,2,2,2);
+                _StandingText[i] = _StandingHeader[i].addText(`${_DivisionStandings[i].teamAbbrev.default}`)
+                _StandingText[i].textColor = new Color("FFFFFF");
+                _TopRow.addSpacer(10);
             }
              /*let _HeadingText;
             _HeadingText = _HeadingStack.addText(
