@@ -113,6 +113,7 @@ if(config.runsInWidget)
                 _StandingText[i] = _StandingHeader[i].addText(`${_DivisionStandings[i].divisionSequence}`);
                 _StandingText[i].textColor = new Color("FFFFFF");
 
+                _StandingHeader[i].addSpacer(10);
                 //Temp Code to replace with Caching
                 const _LogoData = getTeamData();
                 const _LogoURL = _LogoData[_DivisionStandings[i].teamAbbrev.default].logo;
@@ -123,11 +124,7 @@ if(config.runsInWidget)
                 teamLogo.imageSize = new Size(25, 25);
                 _StandingHeader[i].addSpacer(10);
 
-                _StandingText[i] = _StandingHeader.addText(
-                    `${_DivisionStandings[i].teamAbbrev.default} ${_DivisionStandings[i].gamesPlayed} ${_DivisionStandings[i].wins} 
-                    ${_DivisionStandings[i].losses} ${_DivisionStandings[i].otLosses} ${_DivisionStandings[i].points}
-                    `);
-                    _StandingHeader.leftAlignText();
+                _StandingText[i] = _StandingHeader[i].addText(`${_DivisionStandings[i].teamAbbrev.default} ${_DivisionStandings[i].gamesPlayed} ${_DivisionStandings[i].wins} ${_DivisionStandings[i].losses} ${_DivisionStandings[i].otLosses} ${_DivisionStandings[i].points}`);
                 _TopRow.addSpacer(10);
              /*let _HeadingText;
             _HeadingText = _HeadingStack.addText(
