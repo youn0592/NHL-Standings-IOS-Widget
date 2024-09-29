@@ -105,14 +105,32 @@ if(config.runsInWidget)
 
             _StandingHeader = [];
             _StandingText = [];
-
+            _StandingText2 = [];
+            
+            //This works!
             for(let i = 0; i < DIVISION_SIZE; ++i)
             {
                 _StandingHeader[i] = _TopRow.addStack();
                 _StandingHeader[i].layoutHorizontally();
                 _StandingHeader[i].setPadding(2,2,2,2);
-                _StandingText[i] = _StandingHeader[i].addText(`${_DivisionStandings[i].teamAbbrev.default}`)
+                _StandingText[i] = _StandingHeader[i].addText(`${_DivisionStandings[i].divisionSequence}`);
                 _StandingText[i].textColor = new Color("FFFFFF");
+
+                //Temp Code to replace with Caching
+                const _LogoData = getTeamData();
+                const _LogoURL = _LogoData[_DivisionStandings[i].teamAbbrev.default].logo;
+                const imgReq = new Request(_LogoURL);
+                const img = await imgReq.loadImage();
+
+                const teamLogo = _StandingHeader[i].addImage(img);
+                teamLogo.imageSize = new Size(25, 25);
+                _StandingHeader[i].addSpacer(10);
+
+                _StandingText[i] = _StandingHeader.addText(
+                    `${_DivisionStandings[i].teamAbbrev.default} ${_DivisionStandings[i].gamesPlayed} ${_DivisionStandings[i].wins} 
+                    ${_DivisionStandings[i].losses} ${_DivisionStandings[i].otLosses} ${_DivisionStandings[i].points}
+                    `);
+                    _StandingHeader.leftAlignText();
                 _TopRow.addSpacer(10);
             }
              /*let _HeadingText;
@@ -153,57 +171,6 @@ if(config.runsInWidget)
         
 
      }
-
-     async function prepareData(currentStanding){
-
-        /*Things I need to display on the widget:
-        
-        List the teams in order of placement in division.
-        each team should start with Team Logo and then Team Abr i.e. TOR, OTT, VAN
-        Team Games Played, Wins, Losses, OTL's, Points and Point%
-
-        Example:
-        1. (Logo) FLA 82 52 24 6 110 .671
-        */ 
-       
-       const _TeamData = {
-           leagueSequence: "",
-           conferenceSequence: "",
-           divisionSequence: "",
-           teamLogo: "",
-           teamAbbrev: "",
-           gamesPlayed: "",
-           wins: "",
-           losses: "",
-           otLosses: "",
-           points: "", 
-           pointPctg: ""
-        }
-        
-        const _Standings =  await fetchCurrentStandings();
-        const _DivisionStandings = await sortCurrentStandings(_Standings)
-
-        /*const _StandingsTeam = await filterStandings(_Standings);
-
-        if(!!_StandingsTeam) {
-            _TeamData.leagueSequence = _StandingsTeam.leagueSequence;
-            _TeamData.conferenceSequence = _StandingsTeam.conferenceSequence;
-            _TeamData.divisionSequence = _StandingsTeam.divisionSequence;
-            _TeamData.teamAbbrev = _StandingsTeam.teamAbbrev;
-            _TeamData.gamesPlayed = _StandingsTeam.gamesPlayed;
-            _TeamData.wins = _StandingsTeam.wins;
-            _TeamData.losses = _StandingsTeam.losses;
-            _TeamData.otLosses = _StandingsTeam.otLosses;
-            _TeamData.points = _StandingsTeam.points;
-            _TeamData.pointPctg = _StandingsTeam.pointPctg;
-        }
-
-     console.log(_StandingsTeam)
-     */
-        return _DivisionStandings;
-
-     }
-
 
      function filterStandings(_Standings)
      {
