@@ -100,7 +100,16 @@ if(config.runsInWidget)
             _HeadingStack.layoutHorizontally();
             _HeadingStack.setPadding(2,2,2,2);
 
-            let _HeadingText;
+            let _StandingText = [];
+            const _Data = sortCurrentStandings(_StandingData);
+            for(let i = 0; i < DIVISION_SIZE; ++i)
+            {
+                StandingText[i] = _HeadingStack.addText(`${_Data[i].teamAbbrev}`);
+                _StandingText.textColor = new Color("FFFFFF");
+                _HeadingStack.addSpacer(10);
+                        }
+
+            /* let _HeadingText;
             _HeadingText = _HeadingStack.addText(
               `${_StandingData.divisionSequence}`
             );
@@ -124,8 +133,7 @@ if(config.runsInWidget)
        _SecondRow.layoutHorizontally();
      _SecondRow.setPadding(2,2,2,2);
      
-     const text = _SecondRow.addText(');6-6/):?');
-
+     const text = _SecondRow.addText(');6-6/):?'); */ 
         }
      
      
@@ -166,7 +174,7 @@ if(config.runsInWidget)
         }
         
         const _Standings =  await fetchCurrentStandings();
-        const func = await sortCurrentStandings(_Standings)
+        //const func = await sortCurrentStandings(_Standings)
 
         const _StandingsTeam = await filterStandings(_Standings);
 
