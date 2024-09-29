@@ -100,8 +100,18 @@ if(config.runsInWidget)
             _HeadingStack.layoutHorizontally();
             _HeadingStack.setPadding(2,2,2,2);
 
+            const _Standings =  await fetchCurrentStandings();
+            const _DivisionStandings = await sortCurrentStandings(_Standings)
 
-             let _HeadingText;
+            _StandingText = [];
+
+            for(let i = 0; i < DIVISION_SIZE; ++i)
+            {
+                _StandingText = _HeadingStack.addText(`${_DivisionStandings[i].teamAbbrev.default}`);
+                _StandingText.textColor = new Color("FFFFFF");
+                _HeadingStack.addSpacer(10);
+            }
+             /*let _HeadingText;
             _HeadingText = _HeadingStack.addText(
               `${_StandingData.divisionSequence}`
             );
@@ -126,6 +136,7 @@ if(config.runsInWidget)
      _SecondRow.setPadding(2,2,2,2);
      
      const text = _SecondRow.addText(');6-6/):?'); 
+     */
         }
      
      
@@ -166,9 +177,9 @@ if(config.runsInWidget)
         }
         
         const _Standings =  await fetchCurrentStandings();
-        const func = await sortCurrentStandings(_Standings)
+        const _DivisionStandings = await sortCurrentStandings(_Standings)
 
-        const _StandingsTeam = await filterStandings(_Standings);
+        /*const _StandingsTeam = await filterStandings(_Standings);
 
         if(!!_StandingsTeam) {
             _TeamData.leagueSequence = _StandingsTeam.leagueSequence;
@@ -182,8 +193,10 @@ if(config.runsInWidget)
             _TeamData.points = _StandingsTeam.points;
             _TeamData.pointPctg = _StandingsTeam.pointPctg;
         }
+
      console.log(_StandingsTeam)
-        return _TeamData;
+     */
+        return _DivisionStandings;
 
      }
 
