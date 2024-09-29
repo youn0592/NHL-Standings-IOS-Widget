@@ -85,7 +85,6 @@ if(config.runsInWidget)
 
      async function addLargeWidgetData(_Widget)
      {
-        const _StandingData = await prepareData();
 
         const _TopRow = _Widget.addStack();
         _TopRow.cornerRadius = 12;
@@ -94,8 +93,6 @@ if(config.runsInWidget)
         _TopRow.setPadding(2,2,2,2);
         _TopRow.layoutVertically();
 
-        if(_StandingData != null)
-        {
             const _HeadingStack = _TopRow.addStack();
             _HeadingStack.layoutHorizontally();
             _HeadingStack.setPadding(2,2,2,2);
@@ -132,7 +129,6 @@ if(config.runsInWidget)
                     `);
                     _StandingHeader.leftAlignText();
                 _TopRow.addSpacer(10);
-            }
              /*let _HeadingText;
             _HeadingText = _HeadingStack.addText(
               `${_StandingData.divisionSequence}`
