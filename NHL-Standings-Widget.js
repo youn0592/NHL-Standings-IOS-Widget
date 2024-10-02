@@ -87,11 +87,12 @@ if(config.runsInWidget)
      {
           
           const _ToppestRow = _Widget.addStack();
-          _ToppestRow.size = new Size(308, 59);
+          _ToppestRow.size = new Size(400, 59);
           
      let TopText = _ToppestRow.addText("Standings");
      TopText.leftAlignText();
-
+     TopText.size(25);
+     _ToppestRow.addSpace(0);
      let standingName = await GetStandingsName();
      let SubText = _ToppestRow.addText(`${standingName} Division`);
      SubText.leftAlignText()
@@ -248,19 +249,19 @@ if(config.runsInWidget)
      {
         let _Result;
         switch(DIVISION){
-            case A:
+            case "A":
                 _Result = "Atlantic";
                 break;
-            case C:
+            case "C":
                 _Result = "Central";
                 break;
-            case M:
+            case "M":
                 _Result = "Metro";
                 break;
-            case P:
+            case "P":
                 _Result = "Pacific";
                 break;
-            case W:
+            case "W":
                 _Result = "Wild Card";
                 break;
             default:
