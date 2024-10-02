@@ -88,7 +88,7 @@ if(config.runsInWidget)
           
           const _ToppestRow = _Widget.addStack();
           _ToppestRow.size = new Size(400, 59);
-          _ToppestRow,layoutVertically();
+          _ToppestRow.layoutVertically();
           
      let TopText = _ToppestRow.addText("Standings");
      TopText.leftAlignText();
@@ -112,20 +112,24 @@ if(config.runsInWidget)
             const _Standings =  await fetchCurrentStandings();
             const _DivisionStandings = await sortCurrentStandings(_Standings)
 
-            _StandingHeader = [];
+            let _StandingHeader = _TopRow.addStack();
+            _StandingHeader.layoutHorizontally();
+            _StandingHeader.setPadding(2,2,2,2);
+            let _HeaderText = _StandingHeader.addText("RK  Logo  Team  GP  W   L  OTL  PT  P%")
+
+            _StandingWidget = [];
             _StandingText = [];
-            _StandingText2 = [];
             
             //This works!
             for(let i = 0; i < DIVISION_SIZE; ++i)
             {
-                _StandingHeader[i] = _TopRow.addStack();
-                _StandingHeader[i].layoutHorizontally();
-                _StandingHeader[i].setPadding(2,2,2,2);
-                _StandingText[i] = _StandingHeader[i].addText(`${_DivisionStandings[i].divisionSequence}`);
+                _StandingWidget[i] = _TopRow.addStack();
+                _StandingWidget[i].layoutHorizontally();
+                _StandingWidget[i].setPadding(2,2,2,2);
+                _StandingText[i] = _StandingWidget[i].addText(`${_DivisionStandings[i].divisionSequence}`);
                 _StandingText[i].textColor = new Color("FFFFFF");
 
-                _StandingHeader[i].addSpacer(10);
+                _StandingWidget[i].addSpacer(10);
                 //Temp Code to replace with Caching
                 const _LogoData = getTeamData();
                 const _LogoURL = _LogoData[_DivisionStandings[i].teamAbbrev.default].logo;
@@ -136,7 +140,7 @@ if(config.runsInWidget)
                 teamLogo.imageSize = new Size(25, 25);
                 _StandingHeader[i].addSpacer(10);
 
-                _StandingText[i] = _StandingHeader[i].addText(`${_DivisionStandings[i].teamAbbrev.default} ${_DivisionStandings[i].gamesPlayed} ${_DivisionStandings[i].wins} ${_DivisionStandings[i].losses} ${_DivisionStandings[i].otLosses} ${_DivisionStandings[i].points}`);
+                _StandingText[i] = _StandingHeader[i].addText(`${_DivisionStandings[i].teamAbbrev.default} ${_DivisionStandings[i].gamesPlayed} ${_DivisionStandings[i].wins} ${_DivisionStandings[i].losses} ${_DivisionStandings[i].otLosses} ${_DivisionStandings[i].points} ${_DivisionStandings[i].pointPctg}`);
                 _TopRow.addSpacer(1);
              /*let _HeadingText;
             _HeadingText = _HeadingStack.addText(
