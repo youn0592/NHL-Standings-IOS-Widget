@@ -136,11 +136,11 @@ if(config.runsInWidget)
                 const imgReq = new Request(_LogoURL);
                 const img = await imgReq.loadImage();
 
-                const teamLogo = _StandingHeader[i].addImage(img);
+                const teamLogo = _StandingWidget[i].addImage(img);
                 teamLogo.imageSize = new Size(25, 25);
-                _StandingHeader[i].addSpacer(10);
+                _StandingWidget[i].addSpacer(10);
 
-                _StandingText[i] = _StandingHeader[i].addText(`${_DivisionStandings[i].teamAbbrev.default} ${_DivisionStandings[i].gamesPlayed} ${_DivisionStandings[i].wins} ${_DivisionStandings[i].losses} ${_DivisionStandings[i].otLosses} ${_DivisionStandings[i].points} ${_DivisionStandings[i].pointPctg}`);
+                _StandingText[i] = _StandingWidget[i].addText(`${_DivisionStandings[i].teamAbbrev.default} ${_DivisionStandings[i].gamesPlayed} ${_DivisionStandings[i].wins} ${_DivisionStandings[i].losses} ${_DivisionStandings[i].otLosses} ${_DivisionStandings[i].points} ${_DivisionStandings[i].pointPctg}`);
                 _TopRow.addSpacer(1);
              /*let _HeadingText;
             _HeadingText = _HeadingStack.addText(
