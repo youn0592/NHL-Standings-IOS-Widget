@@ -90,10 +90,11 @@ if(config.runsInWidget)
           _ToppestRow.size = new Size(308, 59);
           
      let TopText = _ToppestRow.addText("Standings");
-     TopText.LeftAlignText();
+     TopText.leftAlignText();
 
      let standingName = await GetStandingsName();
      let SubText = _ToppestRow.addText(`${standingName} Division`);
+     SubText.leftAlignText()
 
         const _TopRow = _Widget.addStack();
         _TopRow.cornerRadius = 12;
