@@ -90,6 +90,7 @@ if(config.runsInWidget)
           _ToppestRow.size = new Size(308, 59);
           
      let TopText = _ToppestRow.addText("Standings");
+     TopText.font = new Font("SanFranciscoDisplay-Bold", 10);
 
         const _TopRow = _Widget.addStack();
         _TopRow.cornerRadius = 12;
@@ -298,7 +299,10 @@ if(config.runsInWidget)
      function getTeamData()
     {
        return {
-           ANA: {
+            ARI:{
+                logo: "https://www.thesportsdb.com/images/media/team/badge/3n1yqw1635072720.png"
+            },
+            ANA: {
             logo: "https://www.thesportsdb.com/images/media/team/badge/1d465t1719573796.png"
            },
            BOS:
@@ -398,7 +402,7 @@ if(config.runsInWidget)
            },
            TBL:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/rsqtwx1422053715.png"
+            logo: "https://www.thesportsdb.com/images/media/team/badge/swysut1421791822.png"
            },
            TOR:
            {
