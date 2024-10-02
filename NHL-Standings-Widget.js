@@ -90,7 +90,10 @@ if(config.runsInWidget)
           _ToppestRow.size = new Size(308, 59);
           
      let TopText = _ToppestRow.addText("Standings");
-     TopText.font = new Font("SanFranciscoDisplay-Bold", 10);
+     TopText.LeftAlignText();
+
+     let standingName = await GetStandingsName();
+     let SubText = _ToppestRow.addText(`${standingName} Division`);
 
         const _TopRow = _Widget.addStack();
         _TopRow.cornerRadius = 12;
@@ -240,6 +243,30 @@ if(config.runsInWidget)
     return _Result;
      }
 
+     async function GetStandingsName()
+     {
+        let _Result;
+        switch(DIVISION){
+            case A:
+                _Result = "Atlantic";
+                break;
+            case C:
+                _Result = "Central";
+                break;
+            case M:
+                _Result = "Metro";
+                break;
+            case P:
+                _Result = "Pacific";
+                break;
+            case W:
+                _Result = "Wild Card";
+                break;
+            default:
+                break;
+        }
+        return _Result;
+     }
      async function fetchCurrentStandings()
      {
         const _URL = "https://api-web.nhle.com/v1/standings/now";
