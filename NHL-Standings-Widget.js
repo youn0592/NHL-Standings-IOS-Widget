@@ -88,11 +88,12 @@ if(config.runsInWidget)
           
           const _ToppestRow = _Widget.addStack();
           _ToppestRow.size = new Size(400, 59);
+          _ToppestRow,layoutVertically();
           
      let TopText = _ToppestRow.addText("Standings");
      TopText.leftAlignText();
-     TopText.size(25);
-     _ToppestRow.addSpace(0);
+     TopText.font = Font.boldSystemFont(25);
+     _ToppestRow.addSpacer(1);
      let standingName = await GetStandingsName();
      let SubText = _ToppestRow.addText(`${standingName} Division`);
      SubText.leftAlignText()
