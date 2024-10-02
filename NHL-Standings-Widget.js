@@ -87,7 +87,7 @@ if(config.runsInWidget)
      {
           
           const _ToppestRow = _Widget.addStack();
-          _ToppestRow.size = new Size(400, 59);
+          _ToppestRow.size = new Size(308, 59);
           _ToppestRow.layoutVertically();
           
      let TopText = _ToppestRow.addText("Standings");
@@ -115,7 +115,7 @@ if(config.runsInWidget)
             let _StandingHeader = _TopRow.addStack();
             _StandingHeader.layoutHorizontally();
             _StandingHeader.setPadding(2,2,2,2);
-            let _HeaderText = _StandingHeader.addText("RK  Logo  Team  GP  W   L  OTL  PT  P%")
+            let _HeaderText = _StandingHeader.addText("RK  Logo  Team  GP  W   L  OTL  PT")
 
             _StandingWidget = [];
             _StandingText = [];
@@ -140,8 +140,9 @@ if(config.runsInWidget)
                 teamLogo.imageSize = new Size(25, 25);
                 _StandingWidget[i].addSpacer(10);
 
-                _StandingText[i] = _StandingWidget[i].addText(`${_DivisionStandings[i].teamAbbrev.default} ${_DivisionStandings[i].gamesPlayed} ${_DivisionStandings[i].wins} ${_DivisionStandings[i].losses} ${_DivisionStandings[i].otLosses} ${_DivisionStandings[i].points} ${_DivisionStandings[i].pointPctg}`);
+                _StandingText[i] = _StandingWidget[i].addText(`${_DivisionStandings[i].teamAbbrev.default}`);
                 _TopRow.addSpacer(1);
+                _StandingText[i] = _StandingWidget[i].addText(`${_DivisionStandings[i].gamesPlayed} ${_DivisionStandings[i].wins} ${_DivisionStandings[i].losses} ${_DivisionStandings[i].otLosses} ${_DivisionStandings[i].points}`);
              /*let _HeadingText;
             _HeadingText = _HeadingStack.addText(
               `${_StandingData.divisionSequence}`
