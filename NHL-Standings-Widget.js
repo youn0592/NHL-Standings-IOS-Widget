@@ -85,6 +85,11 @@ if(config.runsInWidget)
 
      async function addLargeWidgetData(_Widget)
      {
+          
+          const _ToppestRow = _Widget.addStack();
+          _ToppestRow.size = new Size(308, 59);
+          
+     let TopText = _ToppestRow.addText("Standings");
 
         const _TopRow = _Widget.addStack();
         _TopRow.cornerRadius = 12;
@@ -125,7 +130,7 @@ if(config.runsInWidget)
                 _StandingHeader[i].addSpacer(10);
 
                 _StandingText[i] = _StandingHeader[i].addText(`${_DivisionStandings[i].teamAbbrev.default} ${_DivisionStandings[i].gamesPlayed} ${_DivisionStandings[i].wins} ${_DivisionStandings[i].losses} ${_DivisionStandings[i].otLosses} ${_DivisionStandings[i].points}`);
-                _TopRow.addSpacer(10);
+                _TopRow.addSpacer(1);
              /*let _HeadingText;
             _HeadingText = _HeadingStack.addText(
               `${_StandingData.divisionSequence}`
