@@ -336,130 +336,130 @@ if(config.runsInWidget)
                 logo: "https://www.thesportsdb.com/images/media/team/badge/3n1yqw1635072720.png"
             },
             ANA: {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/1d465t1719573796.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/1d465t1719573796.png"
            },
            BOS:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/b1r86e1720023232.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/b1r86e1720023232.png"
            },
            BUF:{
-            logo: "https://www.thesportsdb.com/images/media/team/badge/3m3jhp1619536655.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/3m3jhp1619536655.png"
            },
            CGY:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/v8vkk11619536610.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/v8vkk11619536610.png"
            },
            CAR:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/v07m3x1547232585.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/v07m3x1547232585.png"
            },
            CHI:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/tuwyvr1422041801.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/tuwyvr1422041801.png"
            },
            COL:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/wqutut1421173572.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/wqutut1421173572.png"
            },
            CBJ:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/ssytwt1421792535.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/ssytwt1421792535.png"
            },
            DAL:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/qrvywq1422042125.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/qrvywq1422042125.png"
            },
            DET:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/1c24ow1546544080.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/1c24ow1546544080.png"
            },
            EDM:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/uxxsyw1421618428.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/uxxsyw1421618428.png"
            },
            FLA:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/8qtaz11547158220.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/8qtaz11547158220.png"
            },
            LAK:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/w408rg1719220748.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/w408rg1719220748.png"
            },
            MIN:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/swtsxs1422042685.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/swtsxs1422042685.png"
            },
            MTL:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/stpryx1421791753.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/stpryx1421791753.png"
            },
            NSH:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/twqyvy1422052908.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/twqyvy1422052908.png"
            },
            NJD:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/z4rsvp1619536740.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/z4rsvp1619536740.png"
            },
            NYI:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/hqn8511619536714.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/hqn8511619536714.png"
            },
            NYR:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/bez4251546192693.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/bez4251546192693.png"
            },
            OTT:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/2tc1qy1619536592.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/2tc1qy1619536592.png"
            },
            PHI:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/qxxppp1421794965.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/qxxppp1421794965.png"
            },
            PIT:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/dsj3on1546192477.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/dsj3on1546192477.png"
            },
            SJS:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/yui7871546193006.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/yui7871546193006.png"
            },
            SEA:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/zsx49m1595775836.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/zsx49m1595775836.png"
            },
            STL:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/rsqtwx1422053715.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/rsqtwx1422053715.png"
            },
            TBL:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/swysut1421791822.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/swysut1421791822.png"
            },
            TOR:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/mxig4p1570129307.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/mxig4p1570129307.png"
            },
            UTA:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/zxfycs1718706518.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/zxfycs1718706518.png"
            },
            VAN:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/xqxxpw1421875519.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/xqxxpw1421875519.png"
            },
            VGK:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/7fd4521619536689.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/7fd4521619536689.png"
            },
            WSH:
            {
-            logo: "https://www.thesportsdb.com/images/media/team/badge/7fd4521619536689.png"
+            logo: "https://r2.thesportsdb.com/images/media/team/badge/7fd4521619536689.png"
            },
            WPG:
            {
-            logo: "https://www.thesportsdb.com/team/134851-Winnipeg-Jets"
+            logo: "https://r2.thesportsdb.com/team/134851-Winnipeg-Jets"
            }
         };
     }
