@@ -115,7 +115,7 @@ if(config.runsInWidget)
             let _StandingHeader = _TopRow.addStack();
             _StandingHeader.layoutHorizontally();
             _StandingHeader.setPadding(2,2,2,2);
-            let _HeaderText = _StandingHeader.addText("RK  Logo  Team  GP  W   L  OTL  PT  P%")
+            let _HeaderText = _StandingHeader.addText("RK  LG  TM  GP  W   L  OTL  PT  P%")
 
             _StandingWidget = [];
             _StandingText = [];
